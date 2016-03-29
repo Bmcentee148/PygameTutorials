@@ -43,16 +43,32 @@ while not done :
     # ----- Drawing Code Goes Here -----
 
     #Borders
-    pygame.draw.line(screen, BLACK, [100,50], [200,50])
-    pygame.draw.line(screen, BLACK, [100,50], [100,150])
+    #pygame.draw.line(screen, BLACK, [100,50], [200,50])
+    #pygame.draw.line(screen, BLACK, [100,50], [100,150])
 
     #Font 
-    #font = pygame.font.SysFont('Calibri', 25, True, False)
+    font = pygame.font.SysFont('Calibri', 25, True, False)
 
     #Sideways Text
-    #text = font.render("Sideways Text", True, BLACK)
-    #text = pygame.transform.rotate(text, 90)
-    #screen.blit(text,[0,0])
+    text = font.render("Sideways Text", True, BLACK)
+    text = pygame.transform.rotate(text, 90)
+    screen.blit(text,[0,0])
+
+    #Upside down Text
+    text = font.render("Upside Down Text", True, BLACK)
+    text = pygame.transform.rotate(text, 180)
+    screen.blit(text,[30,0])
+
+    #Upside Down Text
+    text = font.render("Flipped Text", True, BLACK)
+    text = pygame.transform.flip(text, False, True)
+    screen.blit(text,[30,20])
+
+    #Animated Rotation
+    text = font.render("Rotating Text", True, BLACK)
+    text = pygame.transform.rotate(text, text_rotate_degrees)
+    text_rotate_degrees += 1
+    screen.blit(text, [100,50])
     # ----- Update Screen With What Was Drawn
     pygame.display.flip()
 
