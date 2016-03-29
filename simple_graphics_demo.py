@@ -64,7 +64,7 @@ while not done :
     pygame.draw.polygon(screen, BLACK, [[100,100],[0,200],[200,200]], 3)
 
     # Select font to use, size, bold, italics
-    font = pygame.font.SysFont('Calibiri',25,True,False)
+    font = pygame.font.SysFont('Courier',25,True,False)
 
     # Render the text. "True" means anti-aliased text.
     # Black is the color. This creates an image of the
