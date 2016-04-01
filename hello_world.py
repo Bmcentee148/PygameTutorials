@@ -23,7 +23,7 @@ def main() :
     # Create and display some text
     our_font = pygame.font.Font(None, 35)
     text = our_font.render("Hello World", 1, text_color)
-    textpos = text.get_rect()
+    textpos = text.get_rect() # for getting/setting position of text
     textpos.centerx = background.get_rect().centerx
 
     # Render text to background and background to screen
@@ -31,12 +31,14 @@ def main() :
     screen.blit(background, (0, 0))
     pygame.display.flip()
 
+    # Event Loop
     while True :
 
         for event in pygame.event.get() :
             if event.type == QUIT :
                 exit(0)
 
+        # Update the Screen
         screen.blit(background, (0,0))
         pygame.display.flip()
 
