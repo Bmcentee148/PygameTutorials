@@ -71,8 +71,8 @@ class Ball(pygame.sprite.Sprite) :
                 angle = math.pi - angle
         else :
             # Deflate the rectangles so you cant catch ball behind bat
-            player1.rect.inflate(-3, -3)
-            player2.rect.inflate(-3, -3)
+            player1.rect.inflate(-20, -20)
+            player2.rect.inflate(-20, -20)
 
             if self.rect.colliderect(player1.rect) == True and not self.hit :
                 angle = math.pi - angle
@@ -150,8 +150,8 @@ def main() :
     #Initialize players
     global player1
     global player2
-    player1 = Bat("right")
-    player2 = Bat("left")
+    player1 = Bat(Bat.RIGHT)
+    player2 = Bat(Bat.LEFT)
 
     #Initialize Ball
     speed = 13
@@ -171,7 +171,7 @@ def main() :
 
     #Main Event Loop
     while True :
-        clock.tick(60) 
+        clock.tick(40) 
 
         for event in pygame.event.get() :
             if event.type == QUIT :
@@ -181,10 +181,18 @@ def main() :
                     player1.moveup()
                 elif event.key == K_DOWN :
                     player1.movedown()
+                elif event.key == K_a :
+                    player2.moveup()
+                elif event.key == K_z :
+                    player2.movedown()
             elif event.type == KEYUP :
                 if event.key == K_UP or event.key == K_DOWN :
                     player1.movepos = [0,0]
                     player1.status = Bat.STILL
+                elif event.key == K_z or event.key == K_a :
+                    player2.movepos = [0,0] 
+                    player2.staus = Bat.STILL
+
 
         screen.blit(background, ball.rect, ball.rect)
         screen.blit(background, player1.rect, player1.rect)

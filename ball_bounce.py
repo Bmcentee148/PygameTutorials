@@ -9,14 +9,19 @@ width = 640
 height = 480
 size = width, height
 
-speed = [4, 4]
+speed = [2, 2]
 
 screen = pygame.display.set_mode(size)
 
 ball = pygame.image.load('ball.bmp')
 ball_rect = ball.get_rect()
 
+clock = pygame.time.Clock()
+
 while True :
+
+    clock.tick(60)
+    
     for event in pygame.event.get() :
         if event.type == pygame.QUIT :
             sys.exit(0)
@@ -29,7 +34,7 @@ while True :
     if ball_rect.top < 0 or ball_rect.bottom > height :
         speed[1] = -1 * speed[1]
 
-    #screen.fill(BLACK)
+    screen.fill(BLACK)
     screen.blit(ball, ball_rect)
     pygame.display.flip()
 
